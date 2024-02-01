@@ -1,0 +1,203 @@
+body {
+    margin: 0;
+    font-family: 'Arial', sans-serif;
+    overflow-x: hidden;
+}
+
+.container{
+    width: 100vw;
+    min-height: 100vh;
+    background: linear-gradient(#fcd7e0, #dbdbdb);
+}
+
+.container h1{
+    margin: 0;
+    padding-top: 50px;
+    font-size: 1.5rem;
+    text-align: center;
+}
+
+
+
+.main_wrapper {
+    display: flex;
+    justify-content: space-evenly;
+    padding-top: 50px;
+}
+
+.wrapper_1 {
+    display: flex;
+    flex-direction: column;
+    align-items: center; 
+}
+
+.wrapper_1 button {
+    margin-top: 1.5rem; 
+    outline: none;
+    padding: 0.8rem; 
+    border-radius: 0.8rem;
+    border: none;
+    background-color: #4caf50; 
+    color: #fff; 
+    box-shadow: rgba(0, 0, 0, 0.5) 0px 3px 10px; 
+
+    cursor: pointer;
+    transition: background-color 0.3s ease-in-out, box-shadow 0.2s ease-in-out;
+}
+
+.wrapper_1 button:nth-child(2) {
+    background-color: #e91e63; 
+}
+
+.wrapper_1 button:nth-child(3) {
+    background-color: #124D82; 
+}
+
+.wrapper_1 button:hover {
+    box-shadow: rgba(0, 0, 0, 0.9) 0px 5px 10px; 
+
+}
+
+.call_stack, .side_stack {
+    box-shadow: rgba(0, 0, 0, 0.5) 0px 3px 10px; 
+}
+.wrapper_2 ul,
+.wrapper_4 ul {
+    width: 150px;
+    height: 200px;
+    border-radius: 12px; /* Rounded corners for a softer look */
+    padding: 1.5rem;
+    background-color: #ffdfdf; /* White background */
+    box-shadow: 0 10px 15px rgba(0, 0, 0, 0.2);
+}
+
+.wrapper_2 ul,
+.wrapper_4 ul {
+    transform: rotate(180deg);
+}
+
+.wrapper_2 ul > li,
+.wrapper_4 ul > li {
+    transform: rotate(-180deg);
+}
+
+.wrapper_2 ul > li , .wrapper_4 ul > li{
+    list-style-type: none;
+    margin-top: 8px;
+    padding: 5px;
+    border-radius: 8px;
+    color: white;
+    text-align: center;
+}
+
+.wrapper_2 , .wrapper_4 > h3{
+    text-align: center;
+}
+
+.call_stack_bg{
+    background-color: #4caf50;
+}
+.side_stack_bg{
+    background-color: #e91e63;
+}
+
+
+.stack_animation{
+   animation: stack-flow 1s ease-in;
+}
+
+
+.wrapper_3 {
+    width: 200px;
+    height: 200px;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    font-size: 1.5rem;
+    font-weight: bold;
+}
+
+.rotation::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background-color: transparent;
+    border-radius: 50%;
+    border-left: 5px solid #0076fd;
+    border-top: 5px solid #0076fd;
+    animation: rotate 0.8s ease-in-out infinite;
+}
+
+.execution_wrapper{
+    padding: 0 50px;
+}
+
+.execution_list{
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.execution_list li{
+    list-style: none;
+    margin:10px 10px 10px 0;
+    padding: 10px 30px;
+    border-radius: 10px;
+    color: white;
+}
+
+.execution_list-bg-green{
+    background-color: #4caf50;
+}
+.execution_list-bg-red{
+    background-color: #e91e63;
+}
+
+.execution_list-animation{
+    animation: execution-animation 1s ease;
+}
+
+.remove_stack_element{
+    animation: remove-stack-element 0.5s ease-out;
+}
+
+@keyframes rotate {
+    0% {
+        transform: rotate(0);
+    }
+
+    100% {
+        transform: rotate(360deg);
+    }
+}
+
+@keyframes stack-flow {
+    from{
+    transform: translateY(200px) rotate(180deg)
+    }
+    to{
+    transform: translateY(0) rotate(180deg)
+    }
+}
+
+@keyframes execution-animation {
+    from{
+        transform: translateX(-100px);
+        opacity: 0;
+    }
+    to{
+        transform: translateX(0);
+        opacity: 1;
+    }
+}
+
+@keyframes remove-stack-element {
+    from{
+        transform: translateY(0) rotate(180deg)
+    }
+    to{
+        transform: translateY(-30px) rotate(180deg);
+        opacity: 0;
+    }
+}

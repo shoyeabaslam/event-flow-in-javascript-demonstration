@@ -1,0 +1,5 @@
+firstchild -> to remove element from the list
+
+setInterval -> to get that animation effect
+
+createChild(pass chile name like "li")
